@@ -1,0 +1,184 @@
+<div class="grid place-items-center">
+  <div
+    class="w-6/12 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+  >
+    <h5
+      class="grid place-items-center mx-3 mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      Create Invoice
+    </h5>
+
+    <form>
+      <select
+        id="customers"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option selected>Choose a Customer</option>
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="FR">France</option>
+        <option value="DE">Germany</option>
+      </select>
+
+      <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
+         mb-2 mt-2 float-right dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      (click)="toggleItemModal()">
+        Add Item
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-10">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="py-3 px-6">Item name</th>
+        <th scope="col" class="py-3 px-6">Quantity</th>
+        <th scope="col" class="py-3 px-6">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+        <th
+          scope="row"
+          class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Cycle
+        </th>
+        <td class="py-4 px-7">2</td>
+        <td class="py-4 px-6">2000</td>
+      </tr>
+      <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+        <th
+          scope="row"
+          class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Microsoft Office
+        </th>
+        <td class="py-4 px-6">5</td>
+        <td class="py-4 px-6">10000</td>
+      </tr>
+      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+        <th
+          scope="row"
+          class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Iphone 12
+        </th>
+        <td class="py-4 px-6">12</td>
+        <td class="py-4 px-6">20000</td>
+      </tr>
+      <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+        <th
+          scope="row"
+          class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Google Pixel Phone
+        </th>
+        <td class="py-4 px-6">3</td>
+        <td class="py-4 px-6">25000</td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+          class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          Apple Watch 5
+        </th>
+        <td class="py-4 px-6">9</td>
+        <td class="py-4 px-6">15000</td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+          class="py-4 px-6 font-bold whitespace-nowrap text-blue-800"
+        >
+          Total
+        </th>
+        <td class="py-4 px-6 font-bold">31</td>
+        <td class="py-4 px-6 font-bold">1,02,000</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+<button
+  type="button"
+  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 mt-5 float-right dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+>
+  Create Invoice
+</button>
+
+
+<!-- Modal -->
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-auto my-6 mx-auto max-w-6xl">
+      <!--content-->
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <!--header-->
+        <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+          <h3 class="text-3xl font-semibold">
+            Add Item
+          </h3>
+          <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleItemModal()">
+            <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+              ×
+            </span>
+          </button>
+        </div>
+        <!--body-->
+        <div class="relative p-6 flex-auto">
+          <select
+        id="customers"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 
+        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option selected>Select item</option>
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="FR">France</option>
+        <option value="DE">Germany</option>
+      </select>
+
+      <label
+      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
+      for="grid-first-name"
+    >
+       Enter Quantity
+    </label>
+    <input
+      class="appearance-none block  bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white w-3/4 p-2.5"
+      id="grid-first-name"
+      type="text"
+      placeholder="Jane"
+    />
+        </div>
+
+        <!-- <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2 float-right dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      (click)="toggleItemModal()">
+        Add Item
+      </button> -->
+
+
+        <!--footer-->
+        <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+          <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleItemModal()">
+            Cancel
+          </button>
+          <button class="bg-emerald-500 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none
+           mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleItemModal()">
+           Add Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
